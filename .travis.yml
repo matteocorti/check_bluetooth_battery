@@ -1,0 +1,14 @@
+language: bash
+
+sudo: required
+
+os:
+    - linux
+    - osx
+
+install:
+    -  ./shell-ci-build/install.sh
+
+script:
+    - make
+    - ./shell-ci-build.sh

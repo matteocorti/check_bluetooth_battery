@@ -5,19 +5,11 @@
 # See  the INSTALL file for installation instructions
 #
 # Copyright (c) 2007, 2011 ETH Zurich.
+# Copyright (c) 2007, 2016 Matteo Corti
 #
 # This module is free software; you can redistribute it and/or modify it
 # under the terms of GNU general public license (gpl) version 3.
 # See the LICENSE file for details.
-#
-# RCS information
-# enable substitution with:
-#   $ svn propset svn:keywords "Id Revision HeadURL Source Date"
-#
-#   $Id: check_ssl_cert 1055 2009-03-31 20:17:13Z corti $
-#   $Revision: 1055 $
-#   $HeadURL: https://svn.id.ethz.ch/nagios_plugins/check_ssl_cert/check_ssl_cert $
-#   $Date: 2009-03-31 22:17:13 +0200 (Tue, 31 Mar 2009) $
 
 VERSION=1.1.0
 NAME="BLUETOOTH BATTERY"
@@ -44,7 +36,7 @@ usage() {
     echo "   -h, -?     this help message"
     echo "   -V         version"
     echo
-    echo "Report bugs to: Matteo Corti <matteo.corti@id.ethz.ch>"
+    echo "Report bugs to: Matteo Corti <matteo@corti.li> or https://github.com/matteocorti/bashcritic/issues"
     echo
 
     exit 3
@@ -82,11 +74,11 @@ check_value() {
 
     VALUE=$1
 
-    if ! echo ${VALUE} | grep -q '^[0-9][0-9]*$' ; then
+    if ! "echo ${VALUE}" | grep -q '^[0-9][0-9]*$' ; then
         critical "${VALUE} is not a positive number"
     fi
 
-    if [ ${VALUE} -gt 100 ] ; then
+    if [ "${VALUE}" -gt 100 ] ; then
         critical "${VALUE} is larger than 100"
     fi
 
@@ -99,7 +91,7 @@ check_value() {
 # Returns 1 if the program exists and is executable
 check_required_prog() {
 
-    PROG=$(which $1)
+    PROG=$(which "$1")
 
     if [ -z "$PROG" ] ; then
         critical "cannot find $1"
@@ -133,29 +125,28 @@ while getopts "c:w:h?Vv" opt; do
         V )      echo "check_bluetooth_battery version ${VERSION}"; exit 3; ;;
     esac
 done
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 ################################################################################
 # sanity checks
 
 if [ -z "${CRITICAL}" ] ; then
-    usage
+    usage 'no critical limit specified'
     exit 3
 fi
 
 if [ -z "${WARNING}" ] ; then
-    usage
+    usage 'no warning limit specified'
     exit 3
 fi
 
-check_value ${CRITICAL}
-check_value ${WARNING}
+check_value "${CRITICAL}"
+check_value "${WARNING}"
 
 #######################
 # Check needed programs
 
 check_required_prog ioreg
-IOREG=$PROG
 
 check_device() {
 
@@ -163,7 +154,7 @@ check_device() {
     name=$2
     description=$3
 
-    level=$(get_level ${device})
+    level=$(get_level "${device}")
 
     if [ -n "${level}" ] ; then
 
@@ -180,10 +171,10 @@ check_device() {
         
         device_found=1
         
-        if [ ${level} -lt ${WARNING} ] ; then
+        if [ "${level}" -lt "${WARNING}" ] ; then
             EXITW=1
         fi
-        if [ ${level} -lt ${CRITICAL} ] ; then
+        if [ "${level}" -lt "${CRITICAL}" ] ; then
             EXITC=1
         fi
 
