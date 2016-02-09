@@ -74,7 +74,7 @@ check_value() {
 
     VALUE=$1
 
-    if ! "echo ${VALUE}" | grep -q '^[0-9][0-9]*$' ; then
+    if ! echo "${VALUE}" | grep -q '^[0-9][0-9]*$' ; then
         critical "${VALUE} is not a positive number"
     fi
 
