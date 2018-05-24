@@ -192,6 +192,7 @@ check_device 'IOAppleBluetoothHIDDriver' 'keyboard' 'bluetooth keyboard'
 check_device 'AppleBluetoothHIDKeyboard' 'keyboard' 'bluetooth keyboard'
 check_device 'BNBMouseDevice'            'mouse'    'bluetooth mouse'
 check_device 'BNBTrackpadDevice'         'trackpad' 'bluetooth trackpad'
+check_device 'AppleHSBluetoothDevice'    'mouse'    'bluetooth mouse'
 
 ##############################################################################
 # Checks
