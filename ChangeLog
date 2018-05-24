@@ -1,3 +1,7 @@
+2018-05-24  Matteo Corti  <matteo@corti.li>
+
+	* check_bluetooth_battery: added support for Magic Mouse 2
+
 2011-12-12  Matteo Corti  <matteo.corti@id.ethz.ch>
 
 	* check_bluetooth_battery: trackpad support
