@@ -107,7 +107,7 @@ get_level() {
 
     NAME=$1
 
-    ioreg -l -n "$1" | grep  '"BatteryPercent"\ =' | sed 's/[^[:digit:]]//g | head -n 1' 
+    ioreg -l -n "$1" | grep  '"BatteryPercent"\ =' | sed 's/[^[:digit:]]//g' | head -n 1
 
 }
 
