@@ -36,7 +36,7 @@ usage() {
     echo "   -h, -?     this help message"
     echo "   -V         version"
     echo
-    echo "Report bugs to: Matteo Corti <matteo@corti.li> or https://github.com/matteocorti/bashcritic/issues"
+    echo "Report bugs to: Matteo Corti <matteo@corti.li> or https://github.com/matteocorti/check_bluetooth_battery/issues"
     echo
 
     exit 3
