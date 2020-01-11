@@ -1,3 +1,7 @@
+2020-01-11  Matteo Corti  <matteo@corti.li>
+
+	* check_bluetooth_battery: AirPod support
+
 2018-05-24  Matteo Corti  <matteo@corti.li>
 
 	* check_bluetooth_battery: added support for Magic Mouse 2

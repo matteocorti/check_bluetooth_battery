@@ -1,4 +1,4 @@
- (c) Matteo Corti, 2009-2018
+ (c) Matteo Corti, 2009-2020
 
 $ check_bluetooth battery
 
