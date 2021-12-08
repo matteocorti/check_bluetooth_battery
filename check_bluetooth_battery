@@ -1,7 +1,5 @@
 #!/bin/sh
 #
-# check_ssl_cert
-#
 # See  the INSTALL file for installation instructions
 #
 # Copyright (c) 2009-2011 ETH Zurich.
@@ -28,7 +26,7 @@ usage() {
     fi
     
     echo
-    echo "Usage: check_ssl_cert [OPTIONS] -c critical -w warning"
+    echo "Usage: check_bluetooth_battery [OPTIONS] -c critical -w warning"
     echo
     echo "Options:"
     echo "   -c critical"
@@ -62,7 +60,7 @@ warning() {
 }
 
 ################################################################################
-# Exits with an 'unkown' status
+# Exits with an 'unknown' status
 # Param
 #   $1 message
 unknown() {
@@ -139,7 +137,7 @@ check_device() {
 	if [ "${device}" = 'Case' ] && [ "${level}" -eq 0 ] ; then
 	    
             if [ -n "${VERBOSE}" ] ; then
-		echo "empy ${description} detected (no battery level delivered)"
+		echo "empty ${description} detected (no battery level delivered)"
             fi
 	    
 	else
